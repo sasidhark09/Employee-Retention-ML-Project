@@ -5,8 +5,8 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model._base import _preprocess_data
 
-main=Flask(__name__)
-app=main
+app=Flask(__name__)
+application=app
 
 xgb_model=pickle.load(open('models/churn_pred.pkl','rb'))
 
