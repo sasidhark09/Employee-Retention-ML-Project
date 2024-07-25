@@ -1,0 +1,78 @@
+<html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    .login {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <div class="login">
+       <h1>Employee Rentention Prediction</h1>
+   
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <input type="text" name="Satisfaction Level" placeholder="Satisfaction Level" required="required" /><br>
+           <input type="text" name="Last Evaluation Score" placeholder="Last Evaluation Score" required="required" /><br>
+           <input type="text" name="Number Of Projects" placeholder="Number Of Projects" required="required" /><br>
+           <input type="text" name="Average Monthly Hours Worked" placeholder="Average Monthly Hours Worked" required="required" /><br>
+           <input type="text" name="Time Spend To Company Years" placeholder="Time Spend To Company" required="required" /><br>
+           <input type="text" name="Any Work Accident" placeholder="Any Work Accident" required="required" /><br>
+           <input type="text" name="Any Promotion Last 5 Years" placeholder="Any Promotion Last 5 Years" required="required" /><br>
+           <input type="text" name="Salary Low" placeholder="Salary Low" required="required" /><br>
+           <input type="text" name="Salary Medium" placeholder="Salary Medium" required="required" /><br>
+           <br>
+           <input type="submit" value="submit" class="btn btn-primary btn-block btn-large"></button>
+       </form>
+       <h2>
+        Employee Retention prediction is 
+     </h2>
+     {% if results==1 %}
+     <p id="output">Yes</p>
+     {% else %}
+     <p id="output">No</p>
+     {% endif %}
+
+     <script>
+        setTimeout(function() {
+            document.getElementById('output').innerText = '';
+        }, 5000);
+    </script>
+
+     <body>
+</html>
