@@ -12,3 +12,4 @@ Werkzeug
 itsdangerous
 certifi
 MarkupSafe
+gunicorn
